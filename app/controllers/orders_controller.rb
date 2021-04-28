@@ -2,6 +2,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @total = 0
+    # remapping the line_item to each product, some how join(:product) doesn't work? 
+    @order_items = LineItem.where("order_id = ?", @order.id.to_i).map {|product| {product: Product.find(product[:product_id]), quantity: product[:quantity], total: product[:total_price_cents]}}
+    @order_items.each do |item|
+      @total += item[:total]
+    end
   end
 
   def create
