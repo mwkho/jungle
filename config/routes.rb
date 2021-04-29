@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
   resources :about, only: [:index]
 
-  reserouces :users , only: [:new, :create]
+  resources :users , only: [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
