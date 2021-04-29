@@ -11,11 +11,15 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to [:admin, :categories], notice: "'#{@category.name}' category has been created"
-      return
+      redirect_to [:admin, :categories], notice: " category has been created"
+    else
+      render :new
     end
+  end
 
-    render :new
-    
+  private 
+
+  def category_params
+    params.require(:category).permit(:name)
   end
 end
