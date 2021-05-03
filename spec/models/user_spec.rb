@@ -32,6 +32,11 @@ RSpec.describe User, type: :model do
       @user.save
       expect(@user.errors.full_messages).not_to be_empty
     end
+    it 'should not create a user with too short of a password'  do 
+      @user = User.new(first_name: 'bob', last_name: 'hastings', email: 'bobH@example.com', password: '12', password_confirmation: '12')
+      @user.save
+      expect(User.find_by(email: 'bobH@example.com')).to be_nil
+    end
     
   end
 end

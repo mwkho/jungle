@@ -11,4 +11,13 @@ class User < ActiveRecord::Base
       errors.add(:password, "passwords need to match")
     end
   end
+
+  def self.authenticate_with_credentials(email, password)
+    # find the user and proceed to authenticate
+    @user = User.find_by_email(email)
+    if @user && @user.authenticate(password)
+      @user
+    end
+
+  end
 end
