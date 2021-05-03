@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   def create 
     @user = User.find_by_email(params[:email])
     #  proceed to login if found user
-    if @user 
+    if @user && @user.authenticate(params[:password])
+
       session[:user_id] = @user.id
       redirect_to :root
     else
