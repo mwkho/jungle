@@ -1,13 +1,12 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2.
 
-## Additional Steps for Apple M1 Machines
-
-1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
-1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
-2. Remove Gemfile.lock
-3. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
+Features include:
+* Guest checkout
+* User registration and sign-in
+* Prevent user from adding an out of stock item to cart
+* Admin rights for adding a product and category
 
 ## Setup
 
@@ -18,16 +17,22 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 5. Create .env file based on .env.example
 6. Sign up for a Stripe account
 7. Put Stripe (test) keys into appropriate .env vars
+9. Assign admin username and password to .env file 
 8. Run `bin/rails s -b 0.0.0.0` to start the server
 
+## Screenshots
+
+![Home Page](https://raw.githubusercontent.com/mwkho/jungle/master/docs/homepage.png)
+![Shopping Cart](https://raw.githubusercontent.com/mwkho/jungle/master/docs/cart.png)
+![Admin page of product](https://raw.githubusercontent.com/mwkho/jungle/master/docs/admin-product-show.png)
 ## Stripe Testing
 
-Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
+Use Credit Card # 4111 1111 1111 1111 for testing orders,
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+* Rails 4.2 
 * PostgreSQL 9.x
 * Stripe
